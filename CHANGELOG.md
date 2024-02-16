@@ -1,3 +1,7 @@
+## [0.0.3] - [16-02-2024]
+
+* TODO: update package documentation.
+
 ## [0.0.2] - [16-02-2024]
 
 * TODO: change inside the example and readme file.
