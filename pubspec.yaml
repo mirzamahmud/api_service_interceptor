@@ -1,7 +1,9 @@
 name: api_service_interceptor
 description: "A Flutter package for API request with Api Service interceptor"
 version: 0.0.1
-homepage:
+homepage: https://github.com/mirzamahmud/api_service_interceptor
+repository: https://github.com/mirzamahmud/api_service_interceptor
+issue_tracker: https://github.com/mirzamahmud/api_service_interceptor/issues
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
