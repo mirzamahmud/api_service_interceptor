@@ -12,9 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences:
-  http:
-  http_parser: 
+  shared_preferences: ^2.2.2
+  http: ^1.2.0
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:
