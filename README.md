@@ -44,7 +44,7 @@ Future<ApiResponseModel> loginUser(
 
     ApiResponseModel responseModel = await apiServiceInterceptor.requestToServer(
         requestUrl: url,
-        requestMethod: "Post",
+        requestMethod: ApiRequestMethod.postMethod,
         bodyParams: jsonEncode(bodyParams),
         headers: headers
     );
