@@ -6,7 +6,7 @@ A Flutter package that will help for fetching and passing data to the server.
 
 [![pub package](https://img.shields.io/pub/v/api_service_interceptor?include_prereleases)](https://pub.dartlang.org/packages/api_service_interceptor)
 
-## How ApiServiceInterceptor Works
+## How It Works
 
 ![ezgif com-animated-gif-maker](https://github.com/mirzamahmud/api_service_interceptor/assets/91328350/1b54a07f-8b72-4d80-b662-d5157c955fbe)
 
