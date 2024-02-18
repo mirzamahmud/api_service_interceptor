@@ -89,10 +89,9 @@ class ApiServiceInterceptor {
   /// also hold additional information about the response, like its location or about the server providing it.
 
   /// [multipartFileField] -> it is [String] type, and it is the name of the form field for the file.
-  /// [multipartFileValue] -> The encoding to use when translating [multipartFileValue] into bytes is taken from
-  /// [multipartContentType] -> if it has a charset set. Otherwise, it defaults to UTF-8.
-  /// [multipartContentType] ->  currently defaults to `text/plain; charset=utf-8`, but in
-  /// the future may be inferred from [multipartFileName]
+  /// [multipartFileValue] -> encoding to use when translating [multipartFileValue] into bytes is taken from [multipartContentType] if it has a charset set. Otherwise, it defaults to UTF-8.
+  /// [multipartFileName] -> The basename of the file, and it may be null.
+  /// [multipartContentType] -> The content-type of the file, and Defaults to application/octet-stream.
 
   Future<ApiResponseModel> multipartRequestToServer(
       {required String requestUrl,
