@@ -23,10 +23,9 @@ or
 ```shell
 flutter pub add api_service_interceptor
 ```
-
 ## Features
 
-ApiServiceInterceptor class has two types of method
+`ApiServiceInterceptor` class has two types of method
 - requestToServer()
 - multipartRequestToServer()
 
@@ -51,32 +50,27 @@ now describe the "multipartRequestToServer()" method, and this method takes seve
 | `String multipartFileName`   | (Optional) The basename of the file, and it may be `null`                                                                                                                                                                                                                 |
 | `MediaType multipartContentType`   | (Optional) The content-type of the file, and Defaults to `application/octet-stream`                                                                                                                                                                                                                 |
 
+Another, we have a `ApiResponseModel` class. This class has two field [_statusCode] and [_responseJson]. 
+- [_statusCode] store what type of status we get from the server and it is an `Int` type. 
+- [_responseJson] store which response we get from the server and it is `String` type.
+Usually `ApiResponseModel` is the skeleton of data which we get from Server Response. 
+
+On the other hand, we have an `enums` class called `ApiRequestMethod`. From this enums we will get our possible [requestMethod].
+Basically `enums`, are a special kind of class used to represent a fixed number of constant values.
+
 ## Usage
 
 ```dart
 
-final ApiServiceInterceptor apiServiceInterceptor;
-
-Future<ApiResponseModel> loginUser(
-    {required String username, required String password}) async {
-  String url = "---------- use your api url ----------";
-
-  Map<String, String> bodyParams = {
+ApiResponseModel responseModel = apiServiceInterceptor.requestToServer(
+  requestUrl: "---------- use your api url ----------",
+  requestMethod: ApiRequestMethod.postRequest,
+  bodyParams: jsonEncode({
     "username": username,
     "password": password
-  };
-
-  Map<String, String> headers = {'Content-Type': 'application/json'};
-
-  ApiResponseModel responseModel =
-  await apiServiceInterceptor.requestToServer(
-      requestUrl: url,
-      requestMethod: ApiRequestMethod.postRequest,
-      bodyParams: jsonEncode(bodyParams),
-      headers: headers);
-
-  return responseModel;
-}
+  }),
+  headers: {'Content-Type': 'application/json'}
+);
 
 ```
 ## Additional Information
