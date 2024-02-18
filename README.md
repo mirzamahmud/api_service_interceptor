@@ -30,14 +30,26 @@ ApiServiceInterceptor class has two types of method
 - requestToServer()
 - multipartRequestToServer()
 
-First I describe the "requestToServer()" method. This method takes 4 parameters ->
+First describe the "requestToServer()" method. This method takes four parameters ->
 
-| Parameters                                                       | Definitions                                                                                                            |
-|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `String requestUrl`                        | (Required) [requestUrl] need to pass your API's url.                                                                    |
-| `String requestMethod`        | (Required) [requestMethod] need to pass API's method so that server can understand for which type of request you want.                                            | 
-| `Object? bodyParams`                              | (Optional) [bodyParams] sets the body of the request. It can be a [String], a [List] or a [Map<String, String>]                                                |
-| `Map<String, String>? headers`                              | (Optional) [headers] need to pass headers because it helps you contain more information about the resource to be fetched, or about the client requesting the resource and also hold additional information about the response, like its location or about the server providing it.                                               |
+| Parameters                       | Definitions                                                                                                                                                                                                                                                              |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `String requestUrl`              | (Required) need to pass your API's url.                                                                                                                                                                                                                                  |
+| `ApiRequestMethod requestMethod` | (Required) need to pass API's method so that server can understand for which type of response data you want.                                                                                                                                                             | 
+| `Object? bodyParams`             | (Optional) sets the body of the request. It can be a [String], a [List] or a [Map<String, String>]                                                                                                                                                                       |
+| `Map<String, String>? headers`   | (Optional) need to pass headers because it helps you contain more information about the resource to be fetched, or about the client requesting the resource and also hold additional information about the response, like its location or about the server providing it. |
+
+now describe the "multipartRequestToServer()" method, and this method takes seven parameters ->
+
+| Parameters                   | Definitions                                                                                                                                                                                                                                                               
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `String requestUrl`          | (Required) need to pass your API's url.                                                                                                                                                                                                                                   |
+| `String requestMethod`       | (Required) need to pass API's method so that server can understand for which type of response data you want.                                                                                                                                                              |
+| `Map<String, String> headers` | (Required) need to pass headers because it helps you contain more information about the resource to be fetched, or about the client requesting the resource and also hold additional information about the response, like its location or about the server providing it.  |
+| `String multipartFileField`  | (Required) the name of the form field for the file                                                                                                                                                                                                                        |
+| `String multipartFileValue`  | (Required) encoding to use when translating [multipartFileValue] into bytes is taken from [multipartContentType] if it has a charset set. Otherwise, it defaults to UTF-8.                                                                                                |
+| `String multipartFileName`   | (Optional) The basename of the file, and it may be `null`                                                                                                                                                                                                                 |
+| `MediaType multipartContentType`   | (Optional) The content-type of the file, and Defaults to `application/octet-stream`                                                                                                                                                                                                                 |
 
 ## Usage
 
@@ -46,25 +58,24 @@ First I describe the "requestToServer()" method. This method takes 4 parameters 
 final ApiServiceInterceptor apiServiceInterceptor;
 
 Future<ApiResponseModel> loginUser(
-      {required String email, required String password}) async {
+    {required String username, required String password}) async {
+  String url = "---------- use your api url ----------";
 
-    String url = "-------- use your api url ---------";
+  Map<String, String> bodyParams = {
+    "username": username,
+    "password": password
+  };
 
-    Map<String, String> bodyParams = {
-      "email": email,
-      "password": password
-    };
+  Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    Map<String, String> headers = {'Content-Type': 'application/json'};
+  ApiResponseModel responseModel =
+  await apiServiceInterceptor.requestToServer(
+      requestUrl: url,
+      requestMethod: ApiRequestMethod.postRequest,
+      bodyParams: jsonEncode(bodyParams),
+      headers: headers);
 
-    ApiResponseModel responseModel = await apiServiceInterceptor.requestToServer(
-        requestUrl: url,
-        requestMethod: ApiRequestMethod.postMethod,
-        bodyParams: jsonEncode(bodyParams),
-        headers: headers
-    );
-
-    return responseModel;
+  return responseModel;
 }
 
 ```

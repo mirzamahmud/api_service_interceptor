@@ -229,7 +229,9 @@ class LoginController extends GetxController {
       }
     } else {
       if (responseModel.statusCode == 401) {
-        // error message
+        if (kDebugMode) {
+          print("Invalid Credential");
+        }
       } else if (responseModel.statusCode == 404) {
         // error message
       } else {
@@ -256,7 +258,7 @@ class LoginRepo {
 
   Future<ApiResponseModel> loginUser(
       {required String username, required String password}) async {
-    String url = "------- pass your api url -------";
+    String url = "---------- use your api url ----------";
 
     Map<String, String> bodyParams = {
       "username": username,
@@ -268,7 +270,7 @@ class LoginRepo {
     ApiResponseModel responseModel =
         await apiServiceInterceptor.requestToServer(
             requestUrl: url,
-            requestMethod: ApiRequestMethod.postMethod,
+            requestMethod: ApiRequestMethod.postRequest,
             bodyParams: jsonEncode(bodyParams),
             headers: headers);
 

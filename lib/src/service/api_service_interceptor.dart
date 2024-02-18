@@ -27,7 +27,7 @@ class ApiServiceInterceptor {
 
   Future<ApiResponseModel> requestToServer({
     required String requestUrl,
-    required String requestMethod,
+    required ApiRequestMethod requestMethod,
     Object? bodyParams,
     Map<String, String>? headers,
   }) async {
@@ -35,25 +35,31 @@ class ApiServiceInterceptor {
     http.Response response;
 
     try {
-      if (requestMethod == ApiRequestMethod.postMethod) {
+      if (requestMethod == ApiRequestMethod.postRequest) {
         response =
             await http.post(url, body: bodyParams, headers: headers).timeout(
                   const Duration(seconds: 10),
                   onTimeout: () =>
                       http.post(url, body: bodyParams, headers: headers),
                 );
-      } else if (requestMethod == ApiRequestMethod.deleteMethod) {
+      } else if (requestMethod == ApiRequestMethod.deleteRequest) {
         response = await http
             .delete(url, body: bodyParams, headers: headers)
             .timeout(const Duration(seconds: 10),
                 onTimeout: () =>
                     http.delete(url, body: bodyParams, headers: headers));
-      } else if (requestMethod == ApiRequestMethod.putMethod) {
+      } else if (requestMethod == ApiRequestMethod.putRequest) {
         response = await http
             .put(url, body: bodyParams, headers: headers)
             .timeout(const Duration(seconds: 10),
                 onTimeout: () =>
                     http.put(url, body: bodyParams, headers: headers));
+      } else if (requestMethod == ApiRequestMethod.patchRequest) {
+        response = await http
+            .patch(url, body: bodyParams, headers: headers)
+            .timeout(const Duration(seconds: 10),
+            onTimeout: () =>
+                http.put(url, body: bodyParams, headers: headers));
       } else {
         response = await http.get(url, headers: headers).timeout(
             const Duration(seconds: 10),
@@ -84,8 +90,8 @@ class ApiServiceInterceptor {
 
   /// [multipartFileField] -> it is [String] type, and it is the name of the form field for the file.
   /// [multipartFileValue] -> The encoding to use when translating [multipartFileValue] into bytes is taken from
-  /// [multipartContentType] if it has a charset set. Otherwise, it defaults to UTF-8.
-  /// [multipartContentType] currently defaults to `text/plain; charset=utf-8`, but in
+  /// [multipartContentType] -> if it has a charset set. Otherwise, it defaults to UTF-8.
+  /// [multipartContentType] ->  currently defaults to `text/plain; charset=utf-8`, but in
   /// the future may be inferred from [multipartFileName]
 
   Future<ApiResponseModel> multipartRequestToServer(
