@@ -1,6 +1,6 @@
 ## api_service_interceptor
 
-A Flutter package that will help for fetching and passing data to the server.
+Api Service interceptor is a Flutter package that helps you to fetch and pass data from Server within the easiest way.
 
 ## API Service Interceptor
 
