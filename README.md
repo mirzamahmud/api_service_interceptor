@@ -62,9 +62,13 @@ Basically `enums`, are a special kind of class used to represent a fixed number 
 
 ```dart
 
+/// declare ApiServiceInterceptor
+final ApiServiceInterceptor apiServiceInterceptor;
+
+/// store data ApiResponseModel
 ApiResponseModel responseModel = apiServiceInterceptor.requestToServer(
   requestUrl: "---------- use your api url ----------",
-  requestMethod: ApiRequestMethod.postRequest,
+  requestMethod: ApiRequestMethod.postRequest, /// use ApiRequestMethod to send request to Server.
   bodyParams: jsonEncode({
     "username": username,
     "password": password

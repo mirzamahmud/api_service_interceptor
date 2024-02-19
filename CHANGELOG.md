@@ -1,4 +1,8 @@
-## [1.0.0] - [16-02-2024]
+## [1.0.1] - [19-02-2024]
+
+* TODO: update documentation.
+
+## [1.0.0] - [18-02-2024]
 
 * TODO: change ApiRequestMethod and update package documentation.
 
