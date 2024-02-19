@@ -1,3 +1,7 @@
+## [1.0.2] - [19-02-2024]
+
+* TODO: update documentation.
+
 ## [1.0.1] - [19-02-2024]
 
 * TODO: update documentation.
