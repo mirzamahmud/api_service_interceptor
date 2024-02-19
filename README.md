@@ -6,7 +6,7 @@ A Flutter package that will help for fetching and passing data to the server.
 
 [![pub package](https://img.shields.io/pub/v/api_service_interceptor?include_prereleases)](https://pub.dartlang.org/packages/api_service_interceptor)
 [![popularity](https://img.shields.io/pub/popularity/api_service_interceptor?logo=dart)](https://pub.dev/packages/api_service_interceptor/score)
-[![likes](https://img.shields.io/pub/likes/gapi_service_interceptoret?logo=dart)](https://pub.dev/packages/api_service_interceptor/score)
+[![likes](https://img.shields.io/pub/likes/api_service_interceptor?logo=dart)](https://pub.dev/packages/api_service_interceptor/score)
 [![pub points](https://img.shields.io/pub/points/sentry?logo=dart)](https://pub.dev/packages/api_service_interceptor/score)
 [![GH Actions](https://github.com/juliuscanute/qr_code_scanner/workflows/dart/badge.svg)](https://github.com/mirzamahmud/api_service_interceptor/actions)
 [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
