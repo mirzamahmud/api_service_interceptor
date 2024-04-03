@@ -67,6 +67,8 @@ class ApiServiceInterceptor {
       }
       if (response.statusCode == 200) {
         return ApiResponseModel(200, response.body);
+      } else if (response.statusCode == 201) {
+        return ApiResponseModel(201, response.body);
       } else if (response.statusCode == 400) {
         return ApiResponseModel(400, response.body);
       } else if (response.statusCode == 401) {
