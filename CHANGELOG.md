@@ -1,3 +1,7 @@
+## [3.0.0] - [16-04-2024]
+
+* TODO: feature update.
+
 ## [2.0.0] - [03-04-2024]
 
 * TODO: feature update.
