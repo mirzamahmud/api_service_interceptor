@@ -1,3 +1,7 @@
+## [3.0.6] - [10-09-2024]
+
+* TODO: update README.
+
 ## [3.0.5] - [08-09-2024]
 
 * TODO: version update.
