@@ -1,4 +1,5 @@
-![logo_1-ezgif com-apng-to-gif-converter](https://github.com/user-attachments/assets/9b728cf0-3928-4046-af7f-19f8d3e41cc5)
+|    ![logo_1-ezgif com-apng-to-gif-converter](https://github.com/user-attachments/assets/9b728cf0-3928-4046-af7f-19f8d3e41cc5)    |
+|:--:|
 
 Api Service interceptor is a Flutter package that helps you to fetch and pass data from Server within the easiest way.
 
